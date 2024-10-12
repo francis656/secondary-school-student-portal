@@ -1,0 +1,46 @@
+/* Gradient Background and styling */
+.background {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+    padding: 30px;
+    background-color: #f9f9f9;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+p {
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .login-container {
+        width: 100%;
+        padding: 20px;
+    }
+}

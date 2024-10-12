@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secondary School Student Portal</title>
+    <!-- Bootstrap for styling and layout -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Beautiful Background and Login Form -->
+    <div class="background">
+        <div class="login-container shadow-lg">
+            <h1 class="text-center">Secondary School Portal</h1>
+            <h3 class="text-center">Student Login</h3>
+            <!-- Login Form -->
+            <form id="loginForm" onsubmit="return login();">
+                <div class="form-group">
+                    <label for="studentID">School ID:</label>
+                    <input type="text" class="form-control" id="studentID" placeholder="Enter School ID" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard (Hidden by default) -->
+    <div id="dashboard" style="display: none;">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Welcome, <span id="studentName"></span></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('profile')">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('financial')">Financial</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('academics')">Academics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Profile Section -->
+        <div id="profile" class="content-section">
+            <h2 class="text-center">Student Profile</h2>
+            <p><strong>Name:</strong> <span id="profileName"></span></p>
+            <p><strong>School ID:</strong> <span id="profileID"></span></p>
+            <p><strong>Class:</strong> <span id="profileClass"></span></p>
+        </div>
+
+        <!-- Financial Section -->
+        <div id="financial" class="content-section" style="display: none;">
+            <h2 class="text-center">Financial Details</h2>
+            <p><strong>Fee Paid:</strong> KSh <span id="feePaid"></span></p>
+            <p><strong>Balance:</strong> KSh <span id="feeBalance"></span></p>
+            <button class="btn btn-secondary" onclick="downloadStatement()">Download Fee Statement</button>
+        </div>
+
+        <!-- Academics Section -->
+        <div id="academics" class="content-section" style="display: none;">
+            <h2 class="text-center">Academic Information</h2>
+            <div id="subjectRegistration" style="display: none;">
+                <h4>Subject Registration</h4>
+                <p>You can register for subjects since you have paid 60% of the term fee:</p>
+                <ul id="subjectsList"></ul>
+                <button class="btn btn-success">Register Subjects</button>
+            </div>
+            <div id="examCard" style="display: none;">
+                <h4>Exam Card</h4>
+                <p>Download your exam card since you have paid 100% of the term fee.</p>
+                <button class="btn btn-success">Download Exam Card</button>
+            </div>
+            <div>
+                <h4>Results</h4>
+                <p>View your academic results.</p>
+                <button class="btn btn-info">View Results</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
